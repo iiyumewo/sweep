@@ -1,0 +1,82 @@
+page,.container,.bottom-cuisine{
+  height: 100%;
+}
+/* 左侧布局 */
+.classify{
+  font-size: 14px;
+  width: 100px;
+  background: #f8f8f8;
+  min-height:100%;
+}
+.single{
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  line-height: 100rpx;
+}
+.hove{
+  border-left: 2px solid blue;
+  background: white;
+}
+/* 布局菜品 */
+.sort{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.cuisine-content{
+  margin-left: 20px;
+  width: 100%;
+}
+.bottom-cuisine{
+  height: 100%;
+  display: flex;
+}
+.cuisine-classify{
+  width: 100%;
+}
+.classify-name{
+  font-size: 13px;
+  padding: 6px 0px;
+}
+.cuisine-name{
+  font-size: 15px;
+}
+.cuisine-price,.cuisine-sales{
+  font-size: 12px;
+}
+.cuisine-image{
+  width: 64px;
+  height: 64px;
+  border-radius: 5px;
+}
+.cuisine-message{
+  display: flex;
+}
+.cuisine{
+  height: 80px;
+  width: 470rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f8f8f8;
+  
+}
+.cuisine-introduce{
+  margin-left: 15px;
+}
+.cuisine-introduce view{
+  padding-bottom:5px;
+}
+.redact{
+  display: flex;
+  align-items: center;
+}
+.redact image{
+  width: 25px;
+  height: 25px;
+}
+.sold image,.sold{
+  width: 25px;
+  height: 25px;
+}

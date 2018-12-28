@@ -1,0 +1,24 @@
+{
+  "pages":[
+    "pages/scan/scan",
+    "pages/scan/index/index",
+    "pages/scan/payment/payment",
+    "pages/scan/shopping/shopping",
+    "pages/scan/hint/hint",
+    "pages/loading/loading",
+    "pages/scan/order/order",
+    "pages/merchant/commodity/classify/classify",
+    "pages/merchant/commodity/addition/addition",
+    "pages/merchant/commodity/redact/redact",
+    "pages/template/template",
+    "pages/merchant/commodity/commodity",
+    "pages/merchant/homepage/homepage",
+    "pages/merchant/apply"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarTitleText": "生活Plus",
+    "navigationBarTextStyle":"black",
+    "navigationBarBackgroundColor": "white"
+  }
+}

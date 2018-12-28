@@ -1,0 +1,43 @@
+
+<view class="container">
+<image style='width:100%;height:250rpx;' src='https://lifeplus-sweep.oss-cn-beijing.aliyuncs.com/sweep_imges/11544585992_.pic_hd.jpg' bindtap='openLifePlus'></image>
+  <view class='centre'>
+    <!-- <button size='mini' wx:if="{{ismerchant==false}}" type='warn' bindtap='skipMerchant'>加入我们</button>
+    <button size='mini'  wx:else type='warn' bindtap='skipMerchant'>我的店铺</button> -->
+    
+    <!-- <button wx:else type='primary' hover-class='click' bindgetuserinfo="login" size="default" bindtap='open_sweep'>点击扫码</button> -->
+    <!-- <text style='margin-top:10px;'>扫码点餐，美味不等人</text> -->
+    <view class='xiaorder'>
+      <view class='xiadan' bindtap='open_sweep'>
+          <!-- <button type='primary' hover-class='click' bindgetuserinfo="login" size="default">点击扫码</button> -->
+      </view>
+      <view class='xiadan' >
+          <button hover-class='click' lang="zh_CN" type='primary' bindtap="getPhone" size="default">手机号登陆</button>
+      </view>
+    </view>
+  </view>
+  <!-- 手机号登陆 -->
+  <view class='password'  hidden='{{phone}}' bindtap="{{islogin==true?'passwordActivity':'codeLoginActivity'}}" >{{islogintext}}</view>
+  <view class='phone' hidden='{{phone}}'>
+    <view style='text-align: center;font-size:16px;'>手机号登录有助于您快速找到好友</view>
+    <view class='msg'>
+    <form bindsubmit="{{code == true?'passwordLogin':'codeLogin'}}">
+      <form bindsubmit="getCode">
+        <input placeholder='输入手机号' placeholder-class="input-al" value='17601245833' name="phone" type="number" maxlength="11"></input>
+        <view class='code' hidden='{{code}}'>    
+          <input placeholder='输入短信验证码' placeholder-class="input-al" name="code" type="number" maxlength="6"></input>
+          <button form-type="submit" class='get-code' >{{btntext}}</button>
+        </view>
+        <input placeholder='输入密码' hidden='{{password}}' value='123456' placeholder-class="input-al" name="password" type="number" maxlength="6"></input>
+      </form>
+        <button form-type="submit" class='login-buttom'>
+          <image src='/image/login.png' class='login'></image>
+        </button>
+      </form>
+    </view>
+  </view>
+  <view class='bottom'>
+    <text>贵州阳光海纳网络科技有限公司</text>
+  </view>
+</view>
+<view class='mask' catchtap='closeShopping' hidden='{{dimension}}'></view>

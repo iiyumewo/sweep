@@ -1,0 +1,21 @@
+<!-- 添加分类 -->
+<view class="container">
+  <view class='ul'>
+    <view class='li' wx:for="{{classifyes}}">
+      <text>{{item.name}}</text>
+      <view class='li-image'>
+        <image src='/image/redact.png' bindtap='compile' data-classify-id = "{{item.id}}"></image>
+        <image src='/image/delete.png' bindtap='delect' data-classify-id = "{{item.id}}"></image>
+      </view>
+    </view>
+    <view class="add-classify {{hide?'':'hide'}}" bindtap='showClassify'>
+      <text style='color:blue;font-size:16px;'>+ 添加分类</text>
+    </view>
+    <form bindsubmit='addClassify'>
+      <view class="sava-classify {{hide?'hide':''}}">
+          <input name="classifyName"  value="{{searchinput}}" placeholder='请输入分类名字'></input>
+          <button form-type='submit' size="mini">保存</button>
+      </view>
+    </form>
+  </view>
+</view>

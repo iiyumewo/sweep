@@ -1,0 +1,142 @@
+page,.container,.bottom-cuisine{
+  height: 95%;
+  min-height:95%;
+}
+.ul{
+  background: white;
+}
+.li image{
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+}
+.li input{
+  margin-left: 30px;
+}
+.li{
+  width: 345px;
+  margin: 0 auto;
+  height: 50px;
+  border-bottom: 1px solid #f8f8f8;
+  align-items: center;
+  display: flex;
+}
+
+/* 选择分类 */
+.choice-classify{
+  width: 345px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.single{
+  width: 100px;
+  height: 40px;
+  background: #f8f8f8;
+  margin-top: 20px;
+  margin-right: 15px;
+  text-align: center;
+  line-height: 40px;
+  display:block;
+}
+.classify{
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hove{
+  background: #e2f0fc;
+}
+
+.play image{
+  width: 60px;
+  height: 60px;
+}
+/* 修改radio样式 */
+radio{
+  display: none;
+}
+
+/* 头部 */
+.head{
+  text-align: center;
+}
+.model{
+  width: 345px;
+  margin: 0 auto;
+  color: #444655;
+  margin-top: 10px;
+  border: 1px solid red;
+}
+.user{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-info{
+  width: 165px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete image{
+  width: 25px;
+  height: 25px;
+}
+
+/* 中间菜品 */
+image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10px;
+}
+.cuisine{
+  display: flex;
+  justify-content: space-around;
+  padding-top:15px;
+  height: 120rpx;
+  width: 650rpx;
+  margin: auto;
+}
+.greensMg{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 600rpx;
+}
+.dishName{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 160px;
+  font-size: 15px;
+  margin-left:20rpx;
+}
+.cuisine-price{
+  font-size: 15px;
+}
+
+.plus{
+  width: 200rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 小计 */
+.subtotal{
+  height: 150rpx;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  width: 700rpx;
+  margin: 20px auto 0px;
+}
+.money-number{
+  font-size: 20px;
+}
+.subtotal-text{
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 30px;
+}

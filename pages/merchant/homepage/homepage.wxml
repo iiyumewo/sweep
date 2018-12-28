@@ -1,0 +1,20 @@
+<view class="container">
+  <view class='head-context'>
+      <view class='context'>
+        <view class='merchant-Mg'>
+          <view class='life'>
+            <image src='{{sellImgUrlOne}}' class='merchant-head'></image>
+            <text>{{sellName}}</text>
+          </view>
+          <image src='/image/arrow.png' class='arrow'></image>
+        </view>
+        <view class='cuisine-Mg' bindtap='commodity'>
+          <view class='life'>
+            <image src='' class='cuisine-sign'></image>
+            <text>商品管理</text>
+          </view>
+          <image src='/image/arrow.png' class='arrow'></image>
+        </view>
+      </view>
+  </view>
+</view>

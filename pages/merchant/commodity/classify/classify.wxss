@@ -1,0 +1,29 @@
+page,.container,.bottom-cuisine{
+  height: 100%;
+  background:#f8f8f8;
+  min-height:100%;
+}
+.ul{
+  background: white;
+}
+.li image{
+  width: 20px;
+  height: 20px;
+}
+.li-image{
+  width: 90px;
+  display: flex;
+  justify-content: space-around;
+}
+.li,.add-classify,.sava-classify{
+  width: 345px;
+  margin: 0 auto;
+  height: 50px;
+  border-bottom: 1px solid #f8f8f8;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.hide{
+  display: none;
+}

@@ -1,0 +1,61 @@
+<view class="container">
+<!-- 基础信息 -->
+  <block wx:for="{{classifyes}}" wx:for-item="orders" wx:for-index="idx">
+    <view class='cuisine'>
+      <view class='greensMg'>
+      <!-- 商家名 -->
+        <view class='sellName'> {{orders.sellInfoName}}</view>
+        <view class='status-txt'>
+        {{orders.orderState==0?"代付款":""}}
+        {{orders.orderState==1?"待商家接单":""}}
+        {{orders.orderState==2&&orders.distributionMethod==1?"商家已接单":""}}
+        {{orders.orderState==2&&orders.dishType=="0"?"待商家上菜":""}}
+        {{orders.orderState==3?"骑手已接单":""}}
+        {{orders.orderState==3&&orders.riderArrivedTime!=null?"待商家出餐":""}}
+        {{orders.orderState==4?"骑手配送中":""}}
+        {{orders.orderState==5?"骑手已送达":""}}
+        {{orders.orderState==6?"待评价":""}}
+        {{orders.orderState==7?"待商家回复":""}}
+        {{orders.orderState==8?"已完成":""}}
+        {{orders.orderState==9?"用户已取消":""}}
+        {{orders.orderState==10?"商家已拒绝订单":""}}
+        {{orders.orderState==11?"退款审核中":""}}
+        {{orders.orderState==12?"已退款":""}}
+        {{orders.orderState==13?"商家拒绝退款":""}}
+        {{orders.orderState==14?"商家已取消接单":""}}
+        </view>
+      <!-- 订单状态 -->
+      </view>
+      <!-- 第一个商品，等第几件商品 -->
+      <view class='shops'>
+        <view class='shop-num'>
+          <view class='dishName'>{{orders.dishName}}</view>
+          <view class='num'>等 {{orders.dishNum}} 件商品</view>
+        </view>
+        <view class='order-price'>￥{{orders.totalPrice}}</view>
+      </view>
+      <!-- 订单价格 -->
+      <!-- 两个按钮 -->
+      <view class='status' style="{{orders.orderState==0 || orders.orderState==2&&orders.distributionMethod==1?'':'width:350rpx'}}">
+        <view bindtap='stateOne' class="{{orders.orderState==0?'hide':''}}">
+        {{orders.orderState==1?"退款":""}}
+        {{orders.orderState==2&&orders.distributionMethod==1?"联系商家":""}}
+        {{orders.orderState==3?"查看骑手":""}}
+        {{orders.orderState==3&&orders.riderArrivedTime!=null?"待商家出餐":""}}
+        {{orders.orderState==4?"骑手配送中":""}}
+        {{orders.orderState==5?"骑手已送达":""}}
+        {{orders.orderState==6?"待评价":""}}
+        {{orders.orderState==7?"待商家回复":""}}
+        {{orders.orderState==8?"已完成":""}}
+        {{orders.orderState==9?"用户已取消":""}}
+        {{orders.orderState==10?"商家已拒绝订单":""}}
+        {{orders.orderState==11?"退款审核中":""}}
+        {{orders.orderState==12?"已退款":""}}
+        {{orders.orderState==13?"商家拒绝退款":""}}
+        {{orders.orderState==14?"商家已取消接单":""}}
+        </view>
+        <view bindtap='bindPay' data-index="{{idx}}" class="{{orders.orderState==2&&orders.distributionMethod==1?'hide':''}}">去支付</view>
+      </view>
+    </view>
+  </block>
+</view>

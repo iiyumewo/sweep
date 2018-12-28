@@ -1,0 +1,66 @@
+<wxs module="filters" src="tofix.wxs"></wxs>
+<!-- 更改商品模板 -->
+<template name="commodity">
+    <view class="container">
+    <view class='ul'>
+      <view class='li'>
+        <text>商品名称: </text>
+        <view class='li-image'>
+          <input placeholder='请输入商品名称' name="name" bindinput="inputAffair" value='{{name}}'></input>
+        </view>
+      </view>
+      <view class='li'>
+        <text>价格(￥): </text>
+        <input placeholder='请输入商品价格' name="price"  bindinput="inputAffair" type='digit' value='{{total}}'></input>
+      </view>
+      <view class='li' bindtap='play'>
+        <text>点击上传菜品图片: </text>
+        <image src='{{img_src}}'></image>
+      </view>
+      <!-- 选择分类 -->
+      <view class='choice-classify'>
+        <text>选择分类</text>
+        <view >
+            <radio-group name="classify" class='classify'>
+            <block wx:for="{{classifyes}}" wx:for-index="idx">
+                <label class='single hove' wx:if="{{index == item.id}}" bindtap='cutClassify' 
+               data-classify-index="{{item.id}}"><radio value="{{item.id}}"  checked/>{{item.name}}</label>
+
+                <label wx:else class='single' data-classify-index="{{item.id}}" bindtap='cutClassify'><radio value="{{item.id}}" />{{item.name}}</label>
+            </block>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<template name="dshlist">
+  <scroll-view scroll-y scroll-with-animation style='height:{{scrollHeight}}rpx;overflow: hidden;' >
+  <view class='greens'>
+      <block wx:for="{{classifyes}}" wx:for-item="classifye">
+        <view class='cuisine' wx:if="{{classifye.dishNum!=0}}">
+          <view class='greensMg'>
+            <view> <image src='{{classifye.dishImgUrl}}'></image></view>
+            <view class='dishName'>{{classifye.dishName}}</view>
+            <text decode="{{true}}"  hidden='{{classifye.normsInfo == ""?true:flase}}' style='font-size:15px;width:100%;color:#939393;'>{{classifye.normsInfo=="0"?"小份":""}} {{classifye.normsInfo=="1"?"中份":""}}{{classifye.normsInfo==2?"大份":""}} &nbsp;{{classifye.conditionsInfo}}</text>
+          </view>
+          <view class='plus'>
+            <text style='font-size:13px;'>x{{classifye.dishNumber}}</text>
+            <text class='cuisine-price'>￥{{filters.toFix(classifye.price*classifye.dishNumber)}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view bindtap='loadingOrder' style='width:100px; margin:0 auto;font-size:16px;color:#999;' hidden='{{isLoad}}'>加载更多...</view>
+  </scroll-view>
+  <view class='subtotal'>
+    <view class='subtotal-text'>
+      <view style='font-size:14px; color:#6E6E6E;'>小计</view>
+      <view class='money-number'>￥{{totalPrice}}</view>
+    </view>
+  </view>
+</template>
+ 
+<template name="advertising">
+  <image style='width:100%;height:200rpx;' src='https://lifeplus-sweep.oss-cn-beijing.aliyuncs.com/sweep_imges/advertising.png' bindtap='openLifePlus'></image>
+</template>

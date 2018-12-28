@@ -1,0 +1,16 @@
+<import src="/pages/template/template.wxml"/>
+<view class="container">
+  <!-- <template is="advertising"/> -->
+  <!-- 用户点的菜模型 -->
+  <template is="dshlist" data="{{classifyes,isLoad,scrollHeight,totalPrice}}"/>
+  
+  <!-- 底部 -->
+  <view class='bottom'>
+    <view class='bottom-left'>
+      <text class='price'>合计￥{{totalPrice}}</text>
+    </view>
+    <view class='bottom-right'>
+      <view class='pay' bindtap='submitOrder'>提交订单</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+.head-context{
+  height: 150px;
+  background: #3e8be7;
+}
+.context{
+  width: 344px;
+  margin: 0 auto;
+}
+.merchant-head{
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.arrow,.cuisine-sign{
+  width: 25px;
+  height: 25px;
+}
+.life{
+  font-family: "微软雅黑";
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.life text{
+  padding-left: 20px;
+}
+.merchant-Mg,.cuisine-Mg{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+}
+.merchant-Mg{
+  padding-bottom: 20px;
+  border-bottom: 1px solid white;
+}
+
+
+.qrcode{
+  width: 150px;
+  height: 50px;
+  background: green;
+  text-align: center;
+  display: flex;
+  align-content: center;
+}

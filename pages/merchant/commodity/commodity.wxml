@@ -1,0 +1,48 @@
+<view class="container">
+  <view class='bottom-cuisine'>
+      <view class='classify'>
+         <block wx:for="{{sellInfo}}" wx:for-item="classifys" wx:for-index="idx">
+            <view class='single hove' wx:if="{{index==idx}}" data-classify-index = "{{idx}}" data-id = "{{idx}}" bindtap='pitchCuisine'>{{classifys.name}}</view>
+            <view class='single' wx:else data-classify-index="{{idx}}" data-id = "{{idx}}"  bindtap='pitchCuisine'>{{classifys.name}}</view>
+          </block>
+            <view class='single' bindtap='addClassify'>分类设置</view>
+          </view>
+          <view class='cuisine-content'>
+          <!-- 排序 -->
+          <view class='sort'>
+            <view style='font-size:14px;'>哈哈哈商品(1)</view>
+            <view style='color:blue;font-size:14px;margin-right:10px;'>排序</view>
+          </view>
+          <scroll-view id='the-id' scroll-y scroll-y scroll-into-view="{{toView}}" scroll-with-animation style='height:{{scrollHeight}}rpx;overflow: hidden;' >
+            <block wx:for="{{sellInfo}}" wx:for-index="idx">
+              <view class='cuisine-classify' id="b{{idx}}">
+                <view class='classify-name'>{{item.name}}</view>
+              <!-- <block wx:for="{{shopDishes}}"> -->
+                <view class='cuisine-classify'>
+                  <view class='cuisine' wx:for="{{item.cuisines}}" wx:for-item="cuisines" wx:for-index="index">
+                    <view class='cuisine-message'>
+                      <image class='cuisine-image' src="{{cuisines.img_src}}" bindtap='browseCuisine' data-url-image = "{{cuisines.img_src}}"></image>
+                      <view class='cuisine-introduce'>
+                        <!-- 下架标志 -->
+                        <view wx:if="{{cuisines.cuisineStatus == 1}}" class='sold'><image src='/image/soldOut.png'></image></view>
+                        <view class='classify-name'>菜品名: {{cuisines.name}}</view>
+                        <view class='cuisine-price'>菜品价格: ￥{{cuisines.total}}元</view>
+                      </view>
+                    </view>
+                    <view class='redact' bindtap='redactCuisine' data-classify-id="{{idx}}" data-cuisines-index="{{index}}" data-cuisines-id = "{{cuisines.id}}">
+                      <image src='/image/redact.png'></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </block>
+             
+            <!-- </block> -->
+        </scroll-view>
+         <!-- 添加商品 -->
+              <view style='text-align: center;' bindtap='addition'>
+                <text style='color:blue;font-size:16px;'>+ 添加商品</text>
+              </view>
+          </view>
+      </view>
+</view>

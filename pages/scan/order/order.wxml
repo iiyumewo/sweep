@@ -1,0 +1,13 @@
+<import src="/pages/template/template.wxml"/>
+<template is="dshlist" data="{{classifyes,isFlase:true,isLoad,scrollHeight,totalPrice}}"/>
+<!-- <view class='pay' bindtap='weChatPay'><button type='primary' style='width:280px;'>微信支付</button></view> -->
+<view style='width:100%;'>
+  <view class='bottom'>
+    <view class='bottom-left'>
+      <text class='price'>￥{{totalPrice}}</text>
+    </view>
+    <view class='bottom-right' bindtap='bindPay'>
+      <view class='pay'>立即支付</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+@import "/pages/template/template.wxss";
+/* 最底部 */
+.bottom{
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background: #444655;
+  border-radius:50px;
+  left:50rpx;
+}
+.bottom-right{
+  width: 200rpx;
+  border-bottom-right-radius:50px;
+  border-top-right-radius:50px;
+}
+.bottom-left{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.shopicon{
+  position: relative;
+  bottom: 15px;
+}
+.pay{
+  background: #ff0074;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  border-bottom-right-radius:50px;
+  border-top-right-radius:50px;
+}
+.price{
+  color: white;
+}

@@ -1,0 +1,123 @@
+page{
+  height: 100%;
+}
+.modle{
+  width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  line-height:60px;
+  margin-bottom: 240rpx;
+  font-size: 17px;
+}
+
+.modle image{
+  width: 80px;
+  height: 65px;
+}
+
+.bottom{
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  font-size: 14px;
+}
+.xiaorder{
+  text-align: center;
+  line-height: 100rpx;
+  font-weight: bold;
+}
+
+.xiadan button{
+  width: 500rpx;
+  border-radius: 8px;
+  background: #4f6aE7;
+  margin-top: 30rpx;
+}
+
+.container{
+  display: flex;
+  justify-content:center;
+  height: 100%;
+}
+.centre{
+  position: absolute;
+  top: 500rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+}
+.phone{
+  position: fixed;
+  width: 85%;
+  left:50rpx;
+  z-index: 9;
+  border-radius: 10px;
+  top: 250rpx;
+  color: white;
+}
+input,.get-code{
+  background: #7c7d83;
+  height: 90rpx;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+  color: white;
+  padding-left: 40rpx;
+}
+.get-code{
+  font-size: 14px;
+  width: 260rpx;
+  line-height: 90rpx;
+}
+.input-al{
+  color: #FFFFFF;
+  font-size: 18px;
+}
+.code{
+  display: flex;
+  height: 90rpx;
+}
+.msg{
+  margin-top: 30rpx;
+}
+.login{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.mask{
+  width:100%;
+  height:1508rpx;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color:#2E3039;
+  opacity:0.70;
+  -moz-opacity: 0.7;
+  filter: alpha(opacity=50);
+  
+}
+.login-buttom {
+  margin-top: 40rpx;
+  background-color:#2E3039;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius:60rpx;
+}
+
+.password{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #FFFFFF;
+  z-index: 9;
+}

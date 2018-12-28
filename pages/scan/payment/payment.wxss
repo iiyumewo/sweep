@@ -1,0 +1,58 @@
+.cuisine{
+  height: 200rpx;
+  width: 650rpx;
+  margin: 0px auto 10px;
+}
+.greensMg{
+  display: flex;
+  justify-content: space-between;
+}
+.sellName{
+  font-size: 14px;
+  font-weight: bold;
+}
+.shops{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.dishName,.num,.status-txt{
+  font-size: 12px;
+}
+.num{
+  color: #444655;
+}
+.shop-num{
+  flex: 2;
+  display: flex;
+  line-height: 40rpx;
+}
+.dishName{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 265rpx;
+  font-size: 15px;
+}
+.order-price{
+  width: 100rpx;
+}
+.status{
+  margin-top: 10rpx;
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  right: 20rpx;
+}
+.status view{
+  font-size: 14px;
+  color: #596A7A;
+  width: 150rpx;
+  height: 60rpx;
+  border: 1px solid #E6ECF1;
+  text-align: center;
+  line-height: 60rpx;
+}
+.hide{
+  display: none;
+}

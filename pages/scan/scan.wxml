@@ -1,0 +1,142 @@
+<import src="/pages/template/template.wxml"/>
+<wxs module="filters" src="tofix.wxs"></wxs>
+<view class="container {{isShoppings?'':'container-hove'}}">
+    <!-- 商家信息和公告 -->
+    <!-- <template is="advertising"/> -->
+    <view class='merchant-title'>
+      <view class='merchant-head'>
+        <view class='merchant-name'>{{sellInfo.sellName}} ></view>
+      <view class='merchant-photo'><image src='{{sellInfo.sellImgUrlOne}}'data-url-image = "{{sellInfo.sellImgUrlOne}}" bindtap='browseCuisine'></image>
+      </view>
+      </view>
+      <view class='actives' >
+        <block wx:for="{{actives}}">
+          <view wx:if="{{item.activeName!='满减'}}">{{item.activeName}}{{item.fullAmount}}</view>
+          <view wx:else>满{{item.arrivalAmount}}减{{item.fullAmount}}</view>
+        </block>
+      </view>
+      <view class='troduction'>公告: {{sellInfo.sellInTroduction}}</view>
+    </view>
+    
+      <view catchtap='sikpOrder' hidden='{{orderHint!=Null?false:true}}' class='order-hint'>{{orderHint}}</view>
+    <!-- 所有菜品 -->
+      <view class='bottom-cuisine'>
+        <view class='classify'>
+          <block wx:for="{{classifyes}}" wx:for-item="classifys" wx:for-index="idx">
+            <view class="single hove {{classifys.shopDishesMap == '' ? 'hide' : '' }}" wx:if="{{index==idx}}" data-classify-index = "{{idx}}" data-id = "{{idx}}" bindtap='pitchCuisine'>{{classifys.categoryName}}</view>
+            <view class="single {{classifys.shopDishesMap == '' ? 'hide' : '' }}"  wx:else data-classify-index="{{idx}}" data-id = "{{idx}}"  bindtap='pitchCuisine' >{{classifys.categoryName}}</view>
+          </block>
+        </view>
+        <view class='cuisine-content'>
+          <scroll-view id='the-id' scroll-y scroll-into-view="{{toView}}" scroll-with-animation style='height:{{scrollHeight}}rpx;overflow: hidden;' >
+          <block wx:for="{{classifyes}}" wx:for-index="idx">
+            <view class='cuisine-classify' id="b{{idx}}">
+              <view class="classify-name {{item.shopDishesMap == '' ? 'hide' : '' }}">{{item.categoryName}}</view>
+              <view class='cuisine' wx:for="{{item.shopDishesMap}}" wx:for-item="cuisines" wx:for-index="index" wx:if="{{cuisines.dishStatus  != 1}}">
+                <view class='cuisine-message'>
+                    <image class='cuisine-image' src='{{cuisines.dishImgUrl}}' bindtap='browseCuisine' data-url-image = "{{cuisines.dishImgUrl}}"></image>
+                    <view hidden="{{cuisines.dishNowNumber==-999?true:flase}}" class='dishnow'>仅剩{{cuisines.dishNowNumber}}份</view>
+                  <view class='cuisine-introduce'>
+                    <view class='cuisine-name' style='width: 109px;font-size: 15px;height:50rpx;line-height: 50rpx;'>{{cuisines.dishName}}</view>
+                    
+                    <view class='cuisine-sales'>月销量:{{cuisines.num}}</view>
+                    <view class='discount-limitation'>
+                      <view class='discount' hidden="{{cuisines.dishMarketPrice == cuisines.dishSellPrice?'true':''}}">{{filters.toFix(cuisines.dishSellPrice/cuisines.dishMarketPrice)}}折</view>
+                      <view class='limitation' hidden='{{cuisines.dishLimit==-999?true:flase}}'>每人限购{{cuisines.dishLimit}}单</view>
+                    </view>
+                    <view class='cuisine-price'>
+                      <view class='cuisine-price-dishsell'>￥{{cuisines.dishSellPrice}}</view>
+                      <view class='cuisine-price-market' hidden="{{cuisines.dishMarketPrice == cuisines.dishSellPrice?'true':''}}">￥{{cuisines.dishMarketPrice}}</view>
+                    </view>
+                  </view>
+                </view>
+                <view class='plus' wx:if="{{cuisines.conditionsTwo==',,'&&cuisines.conditionsOne==',,'&&cuisines.normsBigPrice ==0}}" >
+                  <image src='/image/minus.png' style='width:44rpx;height:44rpx;' wx:if="{{cuisines.dishNum!=0}}" data-cuisines-index="{{idx}}" catchtap='minuteCuisine' data-cuisine-id = "{{index}}"></image>
+                  <text wx:if="{{cuisines.dishNum!=0}}">{{cuisines.dishNum}}</text>
+                  <image src='/image/plus.png' catchtap='plusCuisine' data-cuisines-index="{{idx}}" data-cuisine-id = "{{index}}"></image>
+                </view>
+                  <view wx:if="{{cuisines.conditionsTwo!=',,'||cuisines.conditionsOne!=',,'||cuisines.normsBigPrice !=0}}">
+                    <view class='dimension' catchtap='openDimension' data-cuisines-index="{{idx}}" data-cuisine-id = "{{index}}"  >   <view>选规格</view>
+                    <view wx:if="{{cuisines.dishNum!=0}}" class='cd-num'>{{cuisines.dishNum}}</view>
+                  </view>
+                  <view wx:if="{{cuisines.dishNowNumber==0}}">售馨</view>
+
+                </view>
+              </view>
+            </view>
+          </block>
+      </scroll-view>
+        </view>
+      </view>
+
+      <!-- 规格 -->
+      <view class='dimension-activity' hidden='{{maskFlag}}'>
+        <view>
+          <view style='text-align: center;font-size:16px;'>{{clickShopDIshes.dishName}}</view>
+          <view style='position: absolute;right: 20px;top:10px;' catchtap='closeShopping'>X</view>
+        </view>
+        <view class='d-content' wx:for="{{conditionsInfo.conditions}}" wx:for-index="idx" wx:for-item="conditions">
+          <text>{{conditions.name}}</text>
+          <view class='d-select'>
+            <view wx:for="{{conditions.child}}" wx:for-item="child" style="{{child.isSelect ? 'background: #5172E6;color: white;' : ''}}"  data-conditions-id="{{idx}}" data-child-id="{{index}}" wx:if="{{child.name!=undefined}}" data-sf-money="{{child.money}}" bindtap='shortButton'>{{child.name}}</view>
+        </view>
+        </view>
+        <view class='d-bottom'>
+          <view style='color:red;'>￥{{conditionsMoney}}</view>
+          <view catchtap='dPlusCuisine' wx:if="{{conditionsInfo.isShopping==false}}" class='plus-shopping'>+加入购物车</view>
+          <view class='plus' style='width:200rpx;' wx:else>
+            <image src='/image/minus.png' style='width:44rpx;height:44rpx;' catchtap='shopMinusCuisine' data-cuisine-id = "{{shopping.dishesId}}" data-shopping-index = "{{idx}}"></image>
+            <text>{{conditionsInfo.cuisine.dishNum}}</text>
+            <image src='/image/plus.png' catchtap='dPlusCuisine' ></image>
+          </view>
+        </view>
+      </view>
+      <!-- 有人下单的提示 -->
+      <view class="{{receiveOrder?'hint':'bright789_view_hide'}}">
+          <image src='{{hintContent.dishImgUrl}}'></image>
+          <view class='character'>
+            <view style='font-size:17px;'>微信名:{{hintContent.userName}}</view>
+            <text class='cuisineName'>菜品名:{{hintContent.dishName}}</text>
+          </view>
+      </view>
+      <!-- 底部 -->
+      <view class='activetips' hidden='{{isActiveTips}}'>{{activeTips}}</view>
+        <view class='bottom'>
+          <view class='bottom-left' catchtap='openShopping'>
+            <image style='width:50px;height:{{meal==1?35:45}}px;'  src='/image/meal{{meal}}.png'></image>
+            <view class='pirce-buttom'>
+              <text class='price'>￥{{discount}}</text>
+              <view class='discounts' style='text-decoration:line-through;font-size:12px;color: white;'>￥{{totalPrice}}</view>
+            </view>
+          </view>
+          <view class='bottom-right' bindtap='SkipShopping'>
+            <view class='pay'>确定</view>
+          </view>
+      </view>
+      <view class='shopping' hidden='{{isShoppings}}'>
+          <view class='empty' catchtap='delShoppings'>
+            <view style='margin-right: 20px;'>清空购物车</view>
+          </view>
+          <view class='shoppings'>
+            <scroll-view scroll-y scroll-with-animation style='height:350rpx;overflow: hidden;' >
+          <view class='greens'>
+              <block wx:for="{{shoppings}}" wx:for-item="shopping" wx:for-index="idx">
+                <view class='gcuisine' wx:if="{{shopping.dishNumber!=0}}">
+                  <view class='greensMg'>
+                    <view class='gdishName'>{{shopping.dishName}}</view>
+                    <text decode="{{true}}" hidden='{{shopping.normsInfo == ""?true:flase}}' style='font-size:13px;width:200rpx;color:#939393;'>{{shopping.normsInfo==0?"小份":""}} {{shopping.normsInfo==1?"中份":""}}{{shopping.normsInfo==2?"大份":""}} &nbsp; {{shopping.conditionsInfo}}</text>
+                  </view>
+                  <view class='plus'>
+                    <text class='cuisine-price'>￥{{filters.toFix(shopping.price*shopping.dishNumber)}}</text>
+                      <image src='/image/minus.png' style='width:44rpx;height:44rpx;' catchtap='shopMinusCuisine' data-cuisine-id = "{{shopping.dishesId}}" data-shopping-index = "{{idx}}"></image>
+                      <text>{{shopping.dishNumber}}</text>
+                      <image src='/image/plus.png' catchtap='shopPlusCuisine' data-shopping-index = "{{idx}}" data-cuisine-id = "{{shopping.dishesId}}"></image>
+                  </view>
+                </view>
+              </block>
+            </view>
+      </scroll-view>
+      </view>
+    </view>
+</view>
+<view class='mask' catchtap='closeShopping' hidden='{{dimension}}'></view>

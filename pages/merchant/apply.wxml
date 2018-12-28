@@ -1,0 +1,31 @@
+<view class="container">
+  <view class='top'>
+    <image src='' >这个是个图片</image>
+  </view>
+  <form bindsubmit="consent">
+  <view class='content-ba'>
+  <!-- 下面输入内容 -->
+      <view class='content'>
+        <view class='name-text'>
+          <text>店铺名称</text>
+        </view>
+        <view class='name-view'> <input name="input" placeholder='请输入店铺名' class='name-input'></input></view>
+        <view><text>例: 生活plus</text></view>
+      </view>
+      <view class='protocol'>
+        <view class='protocol-text'>
+          <text>查看</text>
+          <navigator style='color:blue'>《扫码技术服务协议》</navigator>
+        </view>
+        <view>
+          <button type="primary" disabled="{{isdisabled}}" formType="submit">同业协议并提交</button>
+        </view>
+      </view>
+    <!-- 底部 -->
+      <view class='copyright'>
+        <text style='color:blue'>常见问题</text>
+        <text>本技术服务由生活plus所有</text>
+      </view>
+    </view>
+  </form>
+</view>

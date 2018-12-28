@@ -1,0 +1,16 @@
+@import "/pages/template/template.wxss";
+.handle button{
+  width: 31%;
+  height: 40px;
+  background: blue;
+  color:white;
+  font-weight: bold;
+}
+.handle{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.hide{
+  display: none;
+}

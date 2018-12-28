@@ -1,0 +1,13 @@
+<import src="/pages/template/template.wxml"/>
+<form bindsubmit='addClassify'>
+  <template is="commodity" data="{{classifyes,...classifyMg,index}}"/>
+
+  <button class="{{savaHide?'':'hide'}}" form-type='submit' size="default">保存</button>
+
+  <view class="{{savaHide?'hide':'handle'}}">
+    <button  bindtap='soldOut' wx:if="{{classifyMg.cuisineStatus == 0}}" size="size">下架</button>
+    <button  bindtap='putaway' wx:else size="size">上架</button>
+    <button  bindtap='setHandpick' size="size">设为精选</button>
+    <button  bindtap='remove'  size="size">删除</button>
+  </view>
+</form>

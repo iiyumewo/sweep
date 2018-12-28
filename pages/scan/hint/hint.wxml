@@ -1,0 +1,48 @@
+<import src="/pages/template/template.wxml"/>
+<view class="container">
+  <view class='middle'>
+    <view class='payment'>
+      <view>
+        <view>
+          <text>￥</text>
+          <text style='font-size:28px;color:#000000'>{{totalPrice}}</text>
+        </view>
+        <view style='font-size:21px;'>商家名: {{sellName}}</view>
+      </view>
+    </view>
+
+      <scroll-view scroll-y scroll-with-animation style='height:{{scrollHeight}}rpx;overflow: hidden;' >
+  <view class='greens'>
+      <block wx:for="{{classifyes}}" wx:for-item="classifye">
+        <view class='cuisine' wx:if="{{classifye.dishNum!=0}}">
+          <view class='greensMg'>
+            <view> <image src='{{classifye.dishImgUrl}}'></image></view>
+            <view class='dishName'>{{classifye.dishName}}</view>
+            <text decode="{{true}}"  hidden='{{classifye.normsInfo == ""?true:flase}}' style='font-size:15px;width:100%;color:#939393;'>{{classifye.normsInfo=="0"?"小份":""}} {{classifye.normsInfo=="1"?"中份":""}}{{classifye.normsInfo==2?"大份":""}} &nbsp;{{classifye.conditionsInfo}}</text>
+          </view>
+          <view class='plus'>
+            <text style='font-size:13px;'>x{{classifye.num}}</text>
+            <text class='cuisine-price'>￥{{classifye.unitPrice*classifye.num}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view bindtap='loadingOrder' style='width:100px; margin:0 auto;font-size:16px;color:#999;' hidden='{{isLoad}}'>加载更多...</view>
+    </scroll-view>
+  </view>
+
+  <!-- 底部 -->
+  <view class='bottom'>
+      <!-- <view class='hou-we-payment' bindtap='sikpOrder'>
+          <view class='bottom-left'>
+            <text>去加菜</text>
+          </view>
+      </view> -->
+      <view class='we-payment' bindtap='bindPay'>
+          <view class='bottom-left'>
+            <text class='price'>立即支付</text>
+          </view>
+      </view>
+   </view>
+  
+</view>

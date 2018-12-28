@@ -1,0 +1,32 @@
+/* pages/loading/loading.wxss */
+page{
+  height: 1000rpx;
+  width: 100%;
+}
+.container{
+  width: 600rpx;
+  height: 1000rpx;
+  margin:100px auto 0px;
+}
+.code-image{
+  width: 400rpx;
+  height: 380rpx;
+}
+.code,.url{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-items: center;
+}
+.url{
+  margin-top: 50rpx;
+  text-align: center;
+}
+.butcopy{
+  background: #fe437d;
+  color: white;
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+}

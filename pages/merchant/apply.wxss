@@ -1,0 +1,54 @@
+page{
+  height: 100%;
+}
+.top{
+  height: 250px;
+  background: #3e8be7;
+}
+.container{
+  height: 100%;
+  overflow: hidden;
+}
+.content-ba{
+  background: #565656;
+  min-height:100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: row;
+  align-items: center;
+  width: 100%;
+}
+.content{
+  width: 100%;
+  font-size: 18px;
+}
+.content view{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.name-view{
+  background: white;
+}
+.name-input{
+  height: 40px;
+  width: 80%;
+}
+/* 协议 */
+.protocol-text{
+  display: flex;
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+.protocol{
+  margin-top: 40px;
+  width: 90%;
+}
+.copyright{
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

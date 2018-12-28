@@ -1,0 +1,5 @@
+<import src="/pages/template/template.wxml"/>
+<form bindsubmit='addCommodity'>
+  <template is="commodity" data="{{classifyes,index,img_src}}"/>
+  <button form-type='submit' size="default">保存</button>
+</form>

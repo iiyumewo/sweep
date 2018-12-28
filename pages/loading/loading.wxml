@@ -1,0 +1,15 @@
+
+<view class="container">
+  <!-- 扫码进行下载 -->
+  <view class='code'>
+    <view>保存二维码进行下载</view>
+    <image class='code-image' bindtap='browseCuisine' src='/image/download-code.png'>
+    </image>
+  </view>
+  <!-- 官方网址进行下载 -->
+  <view class='url'>
+    <view>复制官方网址进行下载</view>
+    <view bindtap='copy' class='butcopy'>点击复制</view>
+  </view>
+  
+</view>
